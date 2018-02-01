@@ -1,9 +1,16 @@
+/*
+ * The program here, reads the data from a website and prints it on the Serial monitor.
+ * The data is Current Time.
+ * The Internet connectivity for the Arduino board is through the ESP8266 WiFi module.
+ * Author: Anuj Jain
+ * @ianuj03
+ */
 #include<SoftwareSerial.h>
 SoftwareSerial wifi(7,8);
 #define ssid "ANUJ"
 #define pswd "password"
 #define ip "52.1.229.129"
-String Time="a";
+String Time="";
 String time1;
 String GET="GET /apps/thinghttp/send_request?api_key=0R02B0TKBD224PEE\r\n";
 void getTime();
