@@ -6,15 +6,16 @@
  * @ianuj03
  */
 #include<SoftwareSerial.h>
-SoftwareSerial wifi(7,8);
-#define ssid "ANUJ"
-#define pswd "password"
-#define ip "52.1.229.129"
+SoftwareSerial wifi(7,8);//Tx,Rx
+#define ssid "ANUJ"//Change SSID
+#define pswd "password"//Change Password
+#define ip "52.1.229.129"//Static IP of thingspeak.com
+
 String Time="";
-String time1;
 String GET="GET /apps/thinghttp/send_request?api_key=0R02B0TKBD224PEE\r\n";
 void getTime();
-bool wifi_connect(){
+
+/*bool wifi_connect(){
   delay(2000);
   //wifi.println("AT+CIPSTATUS\r\n");
   //if(!wifi.find("2")||!wifi.find("3")){
@@ -36,7 +37,7 @@ bool wifi_connect(){
     return false;
   }
   //}
-}
+}*/
 void setup(){
   wifi.begin(9600);
   Serial.begin(9600);
@@ -45,6 +46,7 @@ void setup(){
   //if(ch==false)
     //  wifi_connect();
 }
+
 void loop(){
   //bool ch=wifi_connect();
   //if(ch==false)
@@ -53,8 +55,10 @@ void loop(){
   Serial.println(Time);
   delay(5000);
 }
+//------------------GET TIME function-----------------
 void getTime(){
   char inv='"';
+  String time1;
   String cmd="AT+CIPSTART=";
   cmd+=inv;
   cmd+="TCP";
