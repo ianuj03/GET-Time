@@ -20,9 +20,9 @@ bool wifi_connect(){
   delay(1000);
   //wifi.println("AT+CIPSTATUS\r\n");
   //if(!wifi.find("2")||!wifi.find("3")){
-   wifi.println("AT+RST\r\n");
+   wifi.println("AT+RST\r\n");//RESET the module
    delay(2000);
-   String cmd="AT+CWJAP=\"";
+   String cmd="AT+CWJAP=\"";//To join an access point
    cmd+=ssid;
    cmd+="\",\"";
    cmd+=pswd;
@@ -40,9 +40,9 @@ bool wifi_connect(){
   //}
 }
 void setup(){
-  wifi.begin(9600);
+  wifi.begin(115200);//Standard  Baud rate of the module
   Serial.begin(9600);
-  delay(5000);
+  delay(3000);
   bool ch=wifi_connect();
   if(ch==false)
      wifi_connect();
