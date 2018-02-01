@@ -9,7 +9,8 @@
 SoftwareSerial wifi(7,8);//Tx,Rx
 #define ssid "ANUJ"//Change SSID
 #define pswd "password"//Change Password
-#define ip "52.1.229.129"//Static IP of thingspeak.com
+#define ip "184.106.153.149"//Static IP of thingspeak.com 
+//Can try with this IP also 52.1.229.129
 
 String Time="";
 String GET="GET /apps/thinghttp/send_request?api_key=0R02B0TKBD224PEE\r\n";
@@ -53,7 +54,7 @@ void loop(){
   //if(ch==false)
     //wifi_connect();
     getTime();
-  Serial.println(Time);
+  Serial.println(Time);//Time is decleared as a global variable
   delay(5000);
 }
 //------------------GET TIME function-----------------
