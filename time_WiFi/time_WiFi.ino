@@ -15,16 +15,17 @@ String Time="";
 String GET="GET /apps/thinghttp/send_request?api_key=0R02B0TKBD224PEE\r\n";
 void getTime();
 
-/*bool wifi_connect(){
-  delay(2000);
+//--------------WiFi CONNECTION---------------
+bool wifi_connect(){
+  delay(1000);
   //wifi.println("AT+CIPSTATUS\r\n");
   //if(!wifi.find("2")||!wifi.find("3")){
- wifi.println("AT+RST\r\n");
- delay(2000);
-  String cmd="AT+CWJAP=\"";
-  cmd+=ssid;
-  cmd+="\",\"";
-  cmd+=pswd;
+   wifi.println("AT+RST\r\n");
+   delay(2000);
+   String cmd="AT+CWJAP=\"";
+   cmd+=ssid;
+   cmd+="\",\"";
+   cmd+=pswd;
   cmd+="\"\r\n";
   wifi.println(cmd);
   delay(2000);
@@ -37,14 +38,14 @@ void getTime();
     return false;
   }
   //}
-}*/
+}
 void setup(){
   wifi.begin(9600);
   Serial.begin(9600);
   delay(5000);
-  //bool ch=wifi_connect();
-  //if(ch==false)
-    //  wifi_connect();
+  bool ch=wifi_connect();
+  if(ch==false)
+     wifi_connect();
 }
 
 void loop(){
