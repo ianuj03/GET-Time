@@ -28,7 +28,7 @@ bool wifi_connect(){
    cmd+="\",\"";
    cmd+=pswd;
   cmd+="\"\r\n";
-  wifi.println(cmd);
+  wifi.println(cmd);//AT+CWJAP="<ssid>","<password>"
   delay(2000);
   if(wifi.find("OK")){
     Serial.println("Connect Wifi : RECEIVED: OK");
