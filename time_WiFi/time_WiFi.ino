@@ -80,7 +80,6 @@ void getTime(){
   cmd="AT+CIPSEND=";
   cmd+=GET.length();
   cmd+="\r\n";
-  //wifi.print("AT+CIPSEND=63");
   wifi.println(cmd);
   delay(1000);
   //GET+="Host:api.thingspeak.com";
@@ -91,6 +90,9 @@ void getTime(){
   //Serial.println(wifi.println(GET));
   //if(wifi.find("Error"))
     //Serial.println("CIPSTART:Recieved Error");
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  //----------------------------Before doing this just print the data as it is on the serial monitor to understand the output of ESP8266--------------------------------
+  //--------------------------------------------------------------------------------------------------------------------------------------------------------------------
   if(wifi.find("+IPD"))
       Serial.println("got time");
   Serial.println(Time);
