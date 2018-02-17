@@ -11,3 +11,12 @@ Through thingspeak.com I have made the API for timeanddate.com of the field time
 
 There are many other information apart from time which is not useful as of now. So, the Arduino program here reads and elminates all those unnecessar information and just prints the time on the Serial Monitor.
 
+### Components:
+Name | Quantity
+-----|---------
+ESP8266 | 1
+Arduino Uno | 1
+Jumper wires M2F | 6
+USB cable | 1
+
+> WiFi with internet connectivity.
