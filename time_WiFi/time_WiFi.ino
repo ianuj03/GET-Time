@@ -16,7 +16,7 @@ String Time="";
 String GET="GET /apps/thinghttp/send_request?api_key=0R02B0TKBD224PEE\r\n";
 void getTime();
 
-//--------------WiFi CONNECTION---------------
+//------------------WiFi CONNECTION-------------------------------
 bool wifi_connect(){
   delay(1000);
   //wifi.println("AT+CIPSTATUS\r\n");
@@ -40,6 +40,7 @@ bool wifi_connect(){
   }
   //}
 }
+//-------------------------WiFi connection check------------------------------
 bool wifi_check(){
   wifi.println("AT+CWJAP?\r\n");
   delay(1000);
@@ -48,6 +49,7 @@ bool wifi_check(){
   else
     return false;
 }
+
 void setup(){
   wifi.begin(115200);//Standard  Baud rate of the module
   Serial.begin(9600);
@@ -68,6 +70,7 @@ void loop(){
   Serial.println(Time);//Time is decleared as a global variable
   delay(5000);
 }
+
 //------------------GET TIME function-----------------
 void getTime(){
   char inv='"';
