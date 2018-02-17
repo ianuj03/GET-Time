@@ -40,6 +40,14 @@ bool wifi_connect(){
   }
   //}
 }
+bool wifi_check(){
+  wifi.println("AT+CWJAP?\r\n");
+  delay(1000);
+  if(wifi.find("OK")||wifi.find("ok"))
+    return true;
+  else
+    return false;
+}
 void setup(){
   wifi.begin(115200);//Standard  Baud rate of the module
   Serial.begin(9600);
@@ -50,10 +58,13 @@ void setup(){
 }
 
 void loop(){
-  //bool ch=wifi_connect();
-  //if(ch==false)
-    //wifi_connect();
-    getTime();
+  bool ch=wifi_check();
+  if(ch==false){
+    ch=wifi_connect();
+    if(!ch)
+      return;
+  }
+  getTime();
   Serial.println(Time);//Time is decleared as a global variable
   delay(5000);
 }
